@@ -1,7 +1,6 @@
 import { BrowserWindow, app, ipcMain, IpcMainEvent } from "electron";
 import * as isDev from "electron-is-dev";
 import * as path from "path";
-import installExtension, { REACT_DEVELOPER_TOOLS } from "electron-devtools-installer";
 
 let mainWindow: BrowserWindow;
 
@@ -10,19 +9,11 @@ async function createWindow() {
         width: 900,
         height: 680,
         webPreferences: {
-            nodeIntegration: true,
-            webSecurity: false // required to allow access to local filesystem. May be changed in the future
+            nodeIntegration: true
         }
     });
 
     if (isDev === true) {
-        try {
-            const extensionInstallResult = await installExtension(REACT_DEVELOPER_TOOLS);
-            console.log(`Added extension: ${extensionInstallResult}`);
-        } catch (ex) {
-            console.log(`An error occurred when adding extension: ${ex}`);
-        }
-
         mainWindow.webContents.openDevTools();
     }
 

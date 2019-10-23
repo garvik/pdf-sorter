@@ -2,6 +2,7 @@ import { Remote, OpenDialogReturnValue } from "electron";
 import React from "react";
 import { PdfModel } from "../Pdf/PdfModel";
 import { PdfLoader } from "../Pdf/PdfLoader";
+import { FileReader } from "../FileReader/FileReader";
 import * as os from "os";
 const electron = window.require("electron");
 const remote = electron.remote as Remote;
@@ -29,7 +30,8 @@ export default class PdfFilePickerButton extends React.Component<PdfFilePickerBu
             return;
         }
 
-        const pdf = await PdfLoader.tryOpenFromPathToPdfAsync(pickerResult.filePaths[0]);
+        const fileBuffer = await FileReader.readFileAsync(pickerResult.filePaths[0]);
+        const pdf = await PdfLoader.tryOpenFromBufferAsync(fileBuffer);
         if (pdf !== null) {
             this.props.onFileSelected(pdf);
         }
