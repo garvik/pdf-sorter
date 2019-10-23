@@ -1,71 +1,72 @@
 {
-  "name": "electron-react-ts-starter",
-  "description": "This is a boilerplate starter for an electron project that uses react with typescript and has some fixes applied for common bugs.",
-  "version": "0.1.0",
-  "private": true,
-  "author": "nateshmbhat",
-  "homepage": "./",
-  "build": {
-    "appId": "com.example.myApplication",
-    "productName": "My Application",
-    "copyright": "Copyright © 2019 Natesh M Bhat",
-    "files": [
-      "build/**/*",
-      "node_modules/**/*"
-    ],
-    "directories": {
-      "buildResources": "assets"
+    "name": "pdf-sorter",
+    "description": "Sorts PDF pages, duh.",
+    "version": "0.1.0",
+    "private": true,
+    "author": "garvik",
+    "homepage": "./",
+    "build": {
+        "appId": "com.example.myApplication",
+        "productName": "PDF Sorter",
+        "copyright": "Copyright © 2019",
+        "files": [
+            "build/**/*",
+            "node_modules/**/*"
+        ],
+        "directories": {
+            "buildResources": "assets"
+        },
+        "win": {
+            "target": "portable",
+            "icon": "assets/app.ico"
+        }
     },
-    "win": {
-      "target": "portable",
-      "icon": "assets/app.ico"
+    "dependencies": {
+        "electron-is-dev": "1.1.0",
+        "pdfjs-dist": "2.2.228",
+        "react": "16.11.0",
+        "react-dom": "16.11.0",
+        "react-scripts": "3.2.0",
+        "typescript": "3.6.4"
+    },
+    "devDependencies": {
+        "electron": "7.0.0",
+        "electron-reload": "1.5.0",
+        "electron-builder": "21.2.0",
+        "wait-on": "3.3.0",
+        "@types/jest": "24.0.19",
+        "@types/node": "12.11.5",
+        "@types/react": "16.9.9",
+        "@types/react-dom": "16.9.2",
+        "@types/pdfjs-dist": "2.1.2",
+        "concurrently": "5.0.0",
+        "cross-env": "6.0.3",
+        "watch": "1.0.2"
+    },
+    "scripts": {
+        "react-start": "react-scripts start",
+        "react-build": "react-scripts build",
+        "react-test": "react-scripts test --env=jsdom",
+        "react-eject": "react-scripts eject",
+        "react-prebuild": "cross-env cp ../main/src/*.js public/",
+        "electron-build": "electron-builder",
+        "release": "npm run react-prebuild && npm run react-build && electron-builder --publish=always",
+        "build": "npm run react-prebuild && npm run react-build && npm run electron-build",
+        "start": "cross-env BROWSER=none npm run react-start"
+    },
+    "eslintConfig": {
+        "extends": "react-app"
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
     }
-  },
-  "dependencies": {
-    "electron-is-dev": "1.1.0",
-    "pdf-lib": "^1.1.1",
-    "react": "16.10.1",
-    "react-dom": "16.10.1",
-    "react-scripts": "3.2.0",
-    "typescript": "3.6.3"
-  },
-  "scripts": {
-    "react-start": "react-scripts start",
-    "react-build": "react-scripts build",
-    "react-test": "react-scripts test --env=jsdom",
-    "react-eject": "react-scripts eject",
-    "react-prebuild": "cross-env cp ../main/src/*.js public/",
-    "electron-build": "electron-builder",
-    "release": "npm run react-prebuild && npm run react-build && electron-builder --publish=always",
-    "build": "npm run react-prebuild && npm run react-build && npm run electron-build",
-    "start": "cross-env BROWSER=none npm run react-start"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "devDependencies": {
-    "electron": "6.0.11",
-    "electron-reload": "1.5.0",
-    "electron-builder": "21.2.0",
-    "wait-on": "3.3.0",
-    "@types/jest": "24.0.18",
-    "@types/node": "12.7.9",
-    "@types/react": "16.9.4",
-    "@types/react-dom": "16.9.1",
-    "concurrently": "4.1.2",
-    "cross-env": "6.0.3",
-    "watch": "1.0.2"
-  }
 }

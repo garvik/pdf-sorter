@@ -1,20 +1,22 @@
 {
-  "name": "electron-react-ts-starter",
-  "version": "1.0.0",
-  "main": "./src/electron.js",
-  "scripts": {
-    "start": "concurrently \"tsc ./src/electron.ts -w\"  \"cross-env NODE_ENV=dev nodemon --exec \"\"wait-on http://localhost:3000 && electron src/electron.js\"\""
-  },
-  "author": "nateshmbhat",
-  "dependencies": {
-    "electron": "6.0.11"
-  },
-  "devDependencies": {
-    "concurrently": "4.1.2",
-    "cross-env": "6.0.3",
-    "electron-is-dev": "1.1.0",
-    "nodemon": "1.19.3",
-    "typescript": "3.6.3",
-    "wait-on": "3.3.0"
-  }
+    "name": "pdf-sorter",
+    "version": "1.0.0",
+    "main": "./src/electron.js",
+    "scripts": {
+        "start": "concurrently \"tsc ./src/electron.ts -w\"  \"cross-env NODE_ENV=dev nodemon --exec \"\"wait-on http://localhost:3000 && electron src/electron.js\"\""
+    },
+    "author": "garvik",
+    "dependencies": {
+        "electron": "7.0.0"
+    },
+    "devDependencies": {
+        "@types/electron-devtools-installer": "2.2.0",
+        "concurrently": "5.0.0",
+        "cross-env": "6.0.3",
+        "electron-is-dev": "1.1.0",
+        "nodemon": "1.19.4",
+        "typescript": "3.6.4",
+        "wait-on": "3.3.0",
+        "electron-devtools-installer": "2.2.4"
+    }
 }
